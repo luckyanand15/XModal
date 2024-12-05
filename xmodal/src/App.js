@@ -44,9 +44,9 @@ function App() {
       <h1>User Details Modal</h1>
       <button onClick={() => setIsOpen(true)}>Open Form</button>
       {isOpen && (
-        <div
+        <div onClick={closeHandler}>
+          <div
           className="modal-content"
-          onClick={closeHandler}
         >
           <form onSubmit={handleSubmit}>
             <h2>Fill Details</h2>
@@ -100,6 +100,7 @@ function App() {
             <br />
             <button type="submit" className="submit-button">Submit</button>
           </form>
+        </div>
         </div>
       )}
     </div>
