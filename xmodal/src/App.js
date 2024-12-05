@@ -17,13 +17,13 @@ function App() {
 
   const validateForm = () => {
     const { username, email, phone, dob } = formData;
-    if(phone.length !== 10 || isNaN(phone)){
+    if (phone.length !== 10 || isNaN(phone)) {
       alert("Invalid phone number. Please enter a 10-digit phone number.");
-      return false
+      return false;
     }
     if (new Date(dob).getTime() > Date.now()) {
       alert("Invalid date of birth. Date of birth cannot be in the future.");
-      return false
+      return false;
     }
     return true;
   };
@@ -34,20 +34,21 @@ function App() {
       setFormData({ username: "", email: "", phone: "", dob: "" });
     }
   };
-  const closeHandler = (e)=>{
-    if(e.target.className === "modal-content"){
+  const closeHandler = (e) => {
+    if (e.target.className === "modal") {
       setIsOpen(false);
     }
-  }
+  };
   return (
-    <div className="modal">
+    <div
+      className="modal"
+      onClick={closeHandler}
+      style={isOpen ? { backgroundColor: "rgba(0, 0, 0, 0.3)" } : {}}
+    >
       <h1>User Details Modal</h1>
       <button onClick={() => setIsOpen(true)}>Open Form</button>
       {isOpen && (
-        <div onClick={closeHandler}>
-          <div
-          className="modal-content"
-        >
+        <div className="modal-content">
           <form onSubmit={handleSubmit}>
             <h2>Fill Details</h2>
             <label>
@@ -98,9 +99,10 @@ function App() {
               />
             </label>
             <br />
-            <button type="submit" className="submit-button">Submit</button>
+            <button type="submit" className="submit-button">
+              Submit
+            </button>
           </form>
-        </div>
         </div>
       )}
     </div>
