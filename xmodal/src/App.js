@@ -34,7 +34,11 @@ function App() {
       setFormData({ username: "", email: "", phone: "", dob: "" });
     }
   };
-  console.log(formData);
+  const closeHandler = (e)=>{
+    if(e.target.className === "modal-content"){
+      setIsOpen(false);
+    }
+  }
   return (
     <div className="modal">
       <h1>User Details Modal</h1>
@@ -42,11 +46,7 @@ function App() {
       {isOpen && (
         <div
           className="modal-content"
-          onClick={(e) => {
-            if (e.target.className === "modal-content") {
-              setIsOpen(false);
-            }
-          }}
+          onClick={closeHandler}
         >
           <form onSubmit={handleSubmit}>
             <h2>Fill Details</h2>
