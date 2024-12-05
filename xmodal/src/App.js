@@ -36,7 +36,7 @@ function App() {
   };
   const closeHandler = (e) => {
     if (e.target.className === "modal") {
-      setIsOpen(false);
+      setIsOpen(prev => !prev);
     }
   };
   return (
@@ -46,7 +46,7 @@ function App() {
       style={isOpen ? { backgroundColor: "rgba(0, 0, 0, 0.3)" } : {}}
     >
       <h1>User Details Modal</h1>
-      <button onClick={() => setIsOpen(true)}>Open Form</button>
+      <button onClick={() => setIsOpen(prev => !prev)}>Open Form</button>
       {isOpen && (
         <div className="modal-content">
           <form onSubmit={handleSubmit}>
