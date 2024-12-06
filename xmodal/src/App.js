@@ -50,8 +50,8 @@ function App() {
         <button onClick={() => setIsOpen(true)}>Open Form</button>
         {isOpen && (
           <div className="modal-content">
+            <h2>Fill Details</h2>
             <form onSubmit={handleSubmit}>
-              <h2>Fill Details</h2>
               <label>
                 Username:
                 <br />
