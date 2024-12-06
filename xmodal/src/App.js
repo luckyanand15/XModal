@@ -35,7 +35,7 @@ function App() {
     }
   };
   const closeHandler = (e) => {
-    if (e.target.className === "app") {
+    if (e.target === e.currentTarget) {
       setIsOpen(false);
     }
   };
