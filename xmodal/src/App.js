@@ -35,76 +35,78 @@ function App() {
     }
   };
   const closeHandler = (e) => {
-    if (e.target.className === "modal") {
-      setIsOpen(prev => !prev);
+    if (e.target.className === "app") {
+      setIsOpen((prev) => !prev);
     }
   };
   return (
     <div
-      className="modal"
+      className="app"
       onClick={closeHandler}
       style={isOpen ? { backgroundColor: "rgba(0, 0, 0, 0.3)" } : {}}
     >
-      <h1>User Details Modal</h1>
-      <button onClick={() => setIsOpen(prev => !prev)}>Open Form</button>
-      {isOpen && (
-        <div className="modal-content">
-          <form onSubmit={handleSubmit}>
-            <h2>Fill Details</h2>
-            <label>
-              Username:
+      <div className="modal">
+        <h1>User Details Modal</h1>
+        <button onClick={() => setIsOpen((prev) => !prev)}>Open Form</button>
+        {isOpen && (
+          <div className="modal-content">
+            <form onSubmit={handleSubmit}>
+              <h2>Fill Details</h2>
+              <label>
+                Username:
+                <br />
+                <input
+                  type="text"
+                  id="username"
+                  value={formData.username}
+                  onChange={handleInput}
+                  required
+                />
+              </label>
               <br />
-              <input
-                type="text"
-                id="username"
-                value={formData.username}
-                onChange={handleInput}
-                required
-              />
-            </label>
-            <br />
-            <label>
-              Email Address:
+              <label>
+                Email Address:
+                <br />
+                <input
+                  type="email"
+                  id="email"
+                  value={formData.email}
+                  onChange={handleInput}
+                  required
+                />
+              </label>
               <br />
-              <input
-                type="email"
-                id="email"
-                value={formData.email}
-                onChange={handleInput}
-                required
-              />
-            </label>
-            <br />
-            <label>
-              Phone Number:
+              <label>
+                Phone Number:
+                <br />
+                <input
+                  type="text"
+                  id="phone"
+                  value={formData.phone}
+                  onChange={handleInput}
+                  required
+                />
+              </label>
               <br />
-              <input
-                type="text"
-                id="phone"
-                value={formData.phone}
-                onChange={handleInput}
-                required
-              />
-            </label>
-            <br />
-            <label>
-              Date of Birth:
+              <label>
+                Date of Birth:
+                <br />
+                <input
+                  type="date"
+                  id="dob"
+                  value={formData.dob}
+                  onChange={handleInput}
+                  required
+                />
+              </label>
               <br />
-              <input
-                type="date"
-                id="dob"
-                value={formData.dob}
-                onChange={handleInput}
-                required
-              />
-            </label>
-            <br />
-            <button type="submit" className="submit-button">
-              Submit
-            </button>
-          </form>
-        </div>
-      )}
+              <button type="submit" className="submit-button">
+                Submit
+              </button>
+            </form>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
