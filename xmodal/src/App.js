@@ -45,10 +45,10 @@ function App() {
       onClick={closeHandler}
       style={isOpen ? { backgroundColor: "rgba(0, 0, 0, 0.3)" } : {}}
     >
-      <div className="modal">
-        <h1>User Details Modal</h1>
-        <button onClick={() => setIsOpen(true)}>Open Form</button>
-        {isOpen && (
+      <h1>User Details Modal</h1>
+      <button onClick={() => setIsOpen(true)}>Open Form</button>
+      {isOpen && (
+        <div className="modal">
           <div className="modal-content">
             <form onSubmit={handleSubmit}>
               <h2>Fill Details</h2>
@@ -105,8 +105,8 @@ function App() {
               </button>
             </form>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
